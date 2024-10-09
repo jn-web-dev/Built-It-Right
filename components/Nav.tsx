@@ -1,7 +1,7 @@
 'use client'
 
 import React from "react";
-
+import Image from 'next/image';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -17,10 +17,19 @@ import { FaHome, FaInfoCircle, FaFolderOpen, FaToolbox, FaEnvelope, FaBars } fro
 
 const Nav = () => {
   return (
-    <div className="px-8 sm:px-12 md:px-16 lg:px-24 items-center "> 
+    <div className="px-8 sm:px-12 md:px-16 lg:px-24 items-center gap-4 ">
       <NavigationMenu className="flex flex-col sm:flex-row justify-between">
-      
-        <NavigationMenuList className="flex flex-col sm:flex-row">
+      <div className="fixed z-10 top-0 left-0 right-0 ml-4 sm:ml-2">
+      <Image
+        src="/images/logo.png"
+        alt="Logo"
+        width={150}
+        height={110}
+        className="mx-auto sm:mx-0 max-w-auto max-h-auto"
+        style={{ position: 'sticky', top: 0 }}
+      />
+    </div>
+        <NavigationMenuList className="flex flex-col sm:flex-row gap-5 ml-10">
           <NavigationMenuItem onClick={() => { window.location.reload(); }} className="hidden sm:flex items-center">
             <NavigationMenuTrigger className="flex items-center hover:text-purple">
               <FaHome className="mr-2" />
@@ -33,13 +42,13 @@ const Nav = () => {
               About Us
             </NavigationMenuTrigger>
           </NavigationMenuItem>
-          <NavigationMenuItem className="hidden sm:flex items-center"> 
+          <NavigationMenuItem className="hidden sm:flex items-center">
             <NavigationMenuTrigger className="flex items-center hover:text-purple">
               <FaFolderOpen className="mr-2" />
               Projects Portfolio
             </NavigationMenuTrigger>
           </NavigationMenuItem>
-          <NavigationMenuItem className="hidden sm:flex items-center"> 
+          <NavigationMenuItem className="hidden sm:flex items-center">
             <NavigationMenuTrigger className="flex items-center hover:text-purple">
               <FaToolbox className="mr-2" />
               Services
@@ -47,15 +56,15 @@ const Nav = () => {
           </NavigationMenuItem>
           <NavigationMenuItem className="hidden sm:flex items-center">
             <NavigationMenuTrigger className="flex items-center hover:text-purple">
-              <FaEnvelope className="mr-2" />
+              <FaEnvelope className="mr-4" />
               Contact Us
             </NavigationMenuTrigger>
           </NavigationMenuItem>
-          <NavigationMenuItem className="sm:hidden">  
+          <NavigationMenuItem className="sm:hidden">
             <NavigationMenuTrigger className="justify-end ">
-              <FaBars className="mr-2" /> 
+              <FaBars className="mr-2" />
             </NavigationMenuTrigger>
-            <NavigationMenuContent className="flex flex-col">
+            <NavigationMenuContent className="flex flex-col gap-5">
               <NavigationMenuLink>Home</NavigationMenuLink>
               <NavigationMenuLink>About Us</NavigationMenuLink>
               <NavigationMenuLink>Projects Portfolio</NavigationMenuLink>
